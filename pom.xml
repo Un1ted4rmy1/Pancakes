@@ -4,7 +4,6 @@
 	<groupId>me.Un1ted</groupId>
 	<artifactId>Pancakes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Pancakes</name>
 	<repositories>
 		<repository>
 			<id>spigot-repo</id>
@@ -16,7 +15,6 @@
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
 			<version>LATEST</version>
-			<type>jar</type>
 		</dependency>
 	</dependencies>
 </project>
