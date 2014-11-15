@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 
+import me.Un1ted.SQL.SQL;
 import me.Un1ted.SQL.SQLAPI;
 
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public class Pancakes extends JavaPlugin {
 		instance = this;
 		//Starts the MYSQL Connection - Required
 		startConnection();
+		new SQL();
 	}
 	
 	public void onDisable() {
