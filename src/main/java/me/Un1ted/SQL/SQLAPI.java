@@ -12,7 +12,7 @@ public class SQLAPI {
 	 */
 	public static Connection getConnection() throws SQLException {
 	    Connection conn = null;
-	    conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:2030", "bhs109-26", "1d551c804c");
+	    conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3389", "bhs109-26", "1d551c804c");
 	    return conn;
 	}
 }
