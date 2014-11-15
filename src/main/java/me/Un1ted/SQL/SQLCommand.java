@@ -25,14 +25,14 @@ public class SQLCommand implements CommandExecutor {
 				 * [/db]
 				 * Default command. Shows the "help"
 				 */
-				if (args.length == 1)
+				if (args.length == 0)
 				{
 					commander.sendMessage("SQL Commands: ");
 					commander.sendMessage("/db connection - Tests the current connection.");
 					commander.sendMessage("/db connection close - Force close the current connection.");
 					
 				}
-				else if (args.length == 2)
+				else if (args.length == 1)
 				{
 					/*
 					 * [/db connection]
@@ -63,12 +63,12 @@ public class SQLCommand implements CommandExecutor {
 						
 					}
 				}
-				else if (args.length == 3)
+				else if (args.length == 2)
 				{
 					
-					if (args[1].equalsIgnoreCase("connection"))
+					if (args[0].equalsIgnoreCase("connection"))
 					{
-						if (args[2].equalsIgnoreCase("close"))
+						if (args[1].equalsIgnoreCase("close"))
 						{
 							try 
 							{
