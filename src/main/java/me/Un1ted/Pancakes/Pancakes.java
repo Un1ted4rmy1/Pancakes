@@ -34,6 +34,7 @@ public class Pancakes extends JavaPlugin {
 			getLogger().log(Level.SEVERE, "Unable to find database. Disabling plugin.");
 			Bukkit.broadcastMessage("Unable to connect to the database. Core Management plugin disabled.");
 			this.setEnabled(false);
+			e.printStackTrace();
 		}
 	}
 	public static Pancakes getPlugin() {
