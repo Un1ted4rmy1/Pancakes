@@ -4,3 +4,6 @@ version: 0.0.1
 authors: [Un1ted4rmy, computerwizjared]
 commands:
   punish:
+   description: Jared's command
+  db:
+   description: Handles database interactions and dataflow.
