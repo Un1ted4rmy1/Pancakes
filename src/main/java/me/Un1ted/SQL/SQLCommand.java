@@ -1,7 +1,9 @@
 package me.Un1ted.SQL;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -34,11 +36,33 @@ public class SQLCommand implements CommandExecutor {
 				}
 				else if (args.length == 1)
 				{
+					if (args[0].equalsIgnoreCase("test"))
+					{
+						
+						try {
+							ResultSet SelectHelloWorld = SQLReader.SELECT("HelloWorld", new String[] { "*" }, new String[] { "Name='Un1ted4rmy'" });
+							int counter = 0;
+							while (SelectHelloWorld.next())
+							{
+								counter++;
+								commander.sendMessage("Beginning Query...");
+								
+								commander.sendMessage("------------------------");
+								commander.sendMessage("Player ID: " + SelectHelloWorld.getInt("PlayerID"));
+								commander.sendMessage("Player Name: " + SelectHelloWorld.getString("Name"));
+								commander.sendMessage("------------------------");
+							}
+							commander.sendMessage("Results Found: " + counter);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							Bukkit.broadcastMessage("Unable to create query...");
+						}
+					}
 					/*
 					 * [/db connection]
 					 * User has decided to test the connection of the MySQL Database 
 					 */
-					if (args[1].equalsIgnoreCase("connection"))
+					if (args[0].equalsIgnoreCase("connection"))
 					{
 						//This method requires a try-catch because it may throw an exception.
 						try 
@@ -92,22 +116,29 @@ public class SQLCommand implements CommandExecutor {
 							}
 						}
 					}
+					if (args[0].equalsIgnoreCase("num"))
+					{
+						if (args[1].equalsIgnoreCase("players"))
+						{
+							int counter = 0;
+							commander.sendMessage("[PancakeData] Running through all players to ever register...");
+							try {
+								ResultSet set = SQL.runQuery("SELECT * FROM Players");
+								while(set.next())
+								{
+									counter++;
+								}
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								commander.sendMessage("[PancakeData] UNABLE TO FINISH. ALERT RYAN!!!");
+							}
+							commander.sendMessage("[PancakeData] Number of users that joined: " + counter);
+						}
+					}
 				}
 				
 			}
-		
-			/*
-			 * [/db <param>]
-			 * User has ran the database command with a single parameter.
-			 */
-			if (args[0].equalsIgnoreCase("db"))
-			{
-				
-					
-				
-
-				
-			}
+	
 			
 		}
 		else
