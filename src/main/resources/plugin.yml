@@ -7,3 +7,5 @@ commands:
    description: Jared's command
   db:
    description: Handles database interactions and dataflow.
+  lovely:
+   description: Custom easter egg for Lovely_013.

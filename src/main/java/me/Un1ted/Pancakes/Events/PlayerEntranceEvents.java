@@ -34,12 +34,10 @@ public class PlayerEntranceEvents implements Listener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		joiner.sendMessage("counter: " + counter);
 		if (counter == 0)	
 		{
 			try
 			{
-				joiner.sendMessage("[BreakfastCraft] At least it's running the query...");
 				Connection conn = SQLAPI.getConnection();
 				Statement statement = conn.createStatement();
 				statement.executeUpdate("INSERT INTO Players (UUID, IP, Name, Date) VALUES"
@@ -48,7 +46,7 @@ public class PlayerEntranceEvents implements Listener{
 			}
 			catch (Exception ex)
 			{
-				Bukkit.getLogger().log(Level.SEVERE, "[Pancakes] {EXCEPTION} Ryan...." + ex.getMessage());
+				Bukkit.getLogger().log(Level.SEVERE, "[Pancakes] {EXCEPTION} Method: DatabaseCheck" + ex.getMessage());
 				
 			}
 			joiner.sendMessage("[BreakfastCraft] You are now eligible to register on our website!");
