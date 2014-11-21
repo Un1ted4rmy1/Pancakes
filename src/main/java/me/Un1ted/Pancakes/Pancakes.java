@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.logging.Level;
 
-import me.Un1ted.Eggs.EasterEggCommands;
+import me.Un1ted.Eggs.EasterEggs;
 import me.Un1ted.Pancakes.Events.EventPlugin;
 import me.Un1ted.SQL.SQL;
 import me.Un1ted.SQL.SQLAPI;
@@ -22,7 +22,7 @@ public class Pancakes extends JavaPlugin {
 		startConnection();
 		new SQL();
 		new EventPlugin();
-		new EasterEggCommands();
+		new EasterEggs();
 	}
 	
 	public void onDisable() {
