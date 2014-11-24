@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import me.Un1ted.Pancakes.API.TimeAPI;
 import me.Un1ted.SQL.SQL;
 import me.Un1ted.SQL.SQLAPI;
+import me.Un1ted.SQL.SQLRef;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -55,6 +56,27 @@ public class PlayerEntranceEvents implements Listener{
 		else
 		{
 			
+		}
+	}
+	
+	@EventHandler
+	public static void CreateMailbox(PlayerJoinEvent event)
+	{
+		try
+		{
+			
+			Player joiner = (Player) event.getPlayer();
+			
+			//Determine if they are in our database
+			ResultSet mailboxes = SQL.Select("SELECT * FROM Mailbox WHERE PlayerID='" + SQLRef.getPlayerID(joiner) + "';");
+			if (SQLAPI.getExactRows(mailboxes) == 0)
+			{
+				SQL.Insert("INSERT INTO Mailbox (PlayerID) VALUES ('" + SQLRef.getPlayerID(joiner) + "');");
+			}
+		}
+		catch (Exception ex)
+		{
+			Bukkit.getLogger().log(Level.SEVERE, "[Pancakes] {EXCEPTION} Method: CreateMailbox" + ex.getMessage());
 		}
 	}
 	

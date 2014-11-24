@@ -9,3 +9,5 @@ commands:
    description: Handles database interactions and dataflow.
   lovely:
    description: Custom easter egg for Lovely_013.
+  mailbox:
+   description: Custom mailbox website-to-server system (internal is working, too)

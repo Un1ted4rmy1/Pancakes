@@ -4,10 +4,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.BookMeta;
 
 public class SQLCommand implements CommandExecutor {
 	
@@ -40,12 +43,13 @@ public class SQLCommand implements CommandExecutor {
 					{
 						
 						try {
-							ResultSet SelectHelloWorld = SQLReader.SELECT("HelloWorld", new String[] { "*" }, new String[] { "Name='Un1ted4rmy'" });
+							ResultSet SelectHelloWorld = SQL.runQuery("SELECT * FROM HelloWorld");
 							int counter = 0;
+							commander.sendMessage("Beginning Query...");
 							while (SelectHelloWorld.next())
 							{
 								counter++;
-								commander.sendMessage("Beginning Query...");
+								
 								
 								commander.sendMessage("------------------------");
 								commander.sendMessage("Player ID: " + SelectHelloWorld.getInt("PlayerID"));
@@ -83,6 +87,29 @@ public class SQLCommand implements CommandExecutor {
 						{
 							commander.sendMessage("SQL Connection Failed! Reason:");
 							commander.sendMessage(e.getMessage());
+						}
+						
+					}
+					if (args[0].equalsIgnoreCase("players"))
+					{
+						ItemStack book = new ItemStack(Material.WRITTEN_BOOK);
+						BookMeta bookProps = (BookMeta) book.getItemMeta();
+						bookProps.setAuthor("BreakfastCraft DATA");
+						bookProps.setTitle("All Players");
+						try {
+							ResultSet set = SQL.runQuery("SELECT * FROM Players");
+							while(set.next())
+							{
+								bookProps.addPage(
+										"Username: \n§7§o" + set.getString("Name") + "\n" +
+										"§rJoin Date: \n§7§o" + set.getString("Date")
+										);
+							}
+							book.setItemMeta(bookProps);
+							commander.getInventory().setItemInHand(book);
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							commander.sendMessage("[PancakeData] UNABLE TO FINISH. ALERT RYAN!!!");
 						}
 						
 					}
@@ -135,6 +162,7 @@ public class SQLCommand implements CommandExecutor {
 							commander.sendMessage("[PancakeData] Number of users that joined: " + counter);
 						}
 					}
+					
 				}
 				
 			}

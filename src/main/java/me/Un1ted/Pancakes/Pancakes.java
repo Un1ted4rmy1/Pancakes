@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 
 import me.Un1ted.Eggs.EasterEggs;
+import me.Un1ted.Mailbox.Mailbox;
 import me.Un1ted.Pancakes.Events.EventPlugin;
 import me.Un1ted.SQL.SQL;
 import me.Un1ted.SQL.SQLAPI;
@@ -23,6 +24,7 @@ public class Pancakes extends JavaPlugin {
 		new SQL();
 		new EventPlugin();
 		new EasterEggs();
+		new Mailbox();
 	}
 	
 	public void onDisable() {
