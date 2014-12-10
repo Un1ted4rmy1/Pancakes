@@ -1,6 +1,6 @@
 name: Pancakes
-main: me.Un1ted.Pancakes.Pancakes
-version: 0.0.1
+main: rocks.breakfastcraft.Pancakes.Pancakes
+version: 1.0
 authors: [Un1ted4rmy, computerwizjared]
 commands:
   punish:
