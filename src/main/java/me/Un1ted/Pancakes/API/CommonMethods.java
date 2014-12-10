@@ -3,6 +3,7 @@ package me.Un1ted.Pancakes.API;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+@SuppressWarnings("deprecation")
 public class CommonMethods {
 	public static String CombineArgsToString(String[] arguments, int startAt)
 	{
