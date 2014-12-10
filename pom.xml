@@ -23,15 +23,4 @@
 			<version>1.8-R0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
-
-	<distributionManagement>
-		<repository>
-			<id>breakfastcraft-releases</id>
-			<url>http://breakfastcraft.rocks/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>breakfastcraft-snapshots</id>
-			<url>http://breakfastcraft.rocks/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
