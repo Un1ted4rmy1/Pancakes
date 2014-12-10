@@ -23,4 +23,21 @@
 			<version>1.8-R0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	
+	<issueManagement>
+		<url>https://github.com/IC-Un1ted/Pancakes/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	
+	<scm>
+		<url>https://github.com/IC-Un1ted/Pancakes/issues</url>
+		<connection>scm:git:git://github.com/IC-Un1ted/Pancakes.git</connection>
+	</scm>
+	
+	<organization>
+		<name>BreakfastCraft</name>
+		<url>http://breakfastcraft.rocks</url>
+	</organization>
+	<name>Pancakes</name>
+	<url>https://github.com/IC-Un1ted/Pancakes</url>
 </project>
