@@ -4,6 +4,13 @@
 	<groupId>rocks.breakfastcraft</groupId>
 	<artifactId>Pancakes</artifactId>
 	<version>1.0</version>
+	<name>Pancakes</name>
+	<url>https://github.com/IC-Un1ted/Pancakes</url>
+	
+	<organization>
+		<name>BreakfastCraft</name>
+		<url>http://breakfastcraft.rocks</url>
+	</organization>
 
 	<repositories>
 		<repository>
@@ -22,7 +29,23 @@
 			<artifactId>spigot</artifactId>
 			<version>1.8-R0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>LATEST</version>
+		</dependency>
 	</dependencies>
+	
+	<distributionManagement>
+		<repository>
+			<id>breakfastcraft-releases</id>
+			<url>http://breakfastcraft.rocks/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>breakfastcraft-snapshots</id>
+			<url>http://breakfastcraft.rocks/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 	
 	<issueManagement>
 		<url>https://github.com/IC-Un1ted/Pancakes/issues</url>
@@ -33,11 +56,4 @@
 		<url>https://github.com/IC-Un1ted/Pancakes/issues</url>
 		<connection>scm:git:git://github.com/IC-Un1ted/Pancakes.git</connection>
 	</scm>
-	
-	<organization>
-		<name>BreakfastCraft</name>
-		<url>http://breakfastcraft.rocks</url>
-	</organization>
-	<name>Pancakes</name>
-	<url>https://github.com/IC-Un1ted/Pancakes</url>
 </project>

@@ -1,5 +1,5 @@
 package rocks.breakfastcraft.Pancakes;
 
 public interface MiniPlugin {
-	Pancakes plugin = Pancakes.getPlugin();
+	Pancakes plugin = Pancakes.getInstance();
 }
