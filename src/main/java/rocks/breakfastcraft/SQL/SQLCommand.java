@@ -6,14 +6,20 @@ import java.sql.SQLException;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.BookMeta;
 
-public class SQLCommand implements CommandExecutor {
+import rocks.breakfastcraft.Pancakes.API.AbstractCommand;
+
+public class SQLCommand extends AbstractCommand {
 	
+	public SQLCommand() {
+		super("db"/*, "usage", "descriptions", "permissionMessage", Arrays.asList("additional", "additional")*/);
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		//Determine if the command sender is a player in game or console.
 		if (sender instanceof Player)

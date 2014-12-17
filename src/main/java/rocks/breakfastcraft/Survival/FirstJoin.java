@@ -24,7 +24,9 @@ public class FirstJoin implements Listener {
 		if (!player.hasPlayedBefore()) {
 			ItemStack ruleBook = new ItemStack(Material.WRITTEN_BOOK);
 			BookMeta ruleBookMeta = (BookMeta) ruleBook.getItemMeta();
+			ruleBookMeta.addPage("§");
 			ruleBook.setItemMeta(ruleBookMeta);
+			player.getInventory().addItem(ruleBook);
 		}
 	}
 }

@@ -1,6 +1,0 @@
-Username: bukkit
-Password: password
-Default:
-  Hostname: localhost
-  Port: 3306
-  Database: Pancakes

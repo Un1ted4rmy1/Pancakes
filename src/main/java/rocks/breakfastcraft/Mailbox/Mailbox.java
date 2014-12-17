@@ -6,6 +6,6 @@ public class Mailbox implements MiniPlugin{
 
 	public Mailbox()
 	{
-		plugin.getCommand("mailbox").setExecutor(new MailboxCommands());
+		new MailboxCommands().register();
 	}
 }

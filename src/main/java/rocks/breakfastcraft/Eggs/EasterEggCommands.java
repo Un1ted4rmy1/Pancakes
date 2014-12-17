@@ -1,11 +1,16 @@
 package rocks.breakfastcraft.Eggs;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class EasterEggCommands implements CommandExecutor{
+import rocks.breakfastcraft.Pancakes.API.AbstractCommand;
+
+public class EasterEggCommands extends AbstractCommand{
+
+	public EasterEggCommands() {
+		super("lovely"/*, "usage", "descriptions", "permissionMessage", Arrays.asList("additional", "additional")*/);
+	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		

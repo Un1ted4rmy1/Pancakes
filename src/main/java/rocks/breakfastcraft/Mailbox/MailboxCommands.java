@@ -8,7 +8,6 @@ import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -16,6 +15,7 @@ import org.bukkit.inventory.meta.BookMeta;
 
 import rocks.breakfastcraft.Pancakes.Globals;
 import rocks.breakfastcraft.Pancakes.Permissions;
+import rocks.breakfastcraft.Pancakes.API.AbstractCommand;
 import rocks.breakfastcraft.Pancakes.API.CommonMethods;
 import rocks.breakfastcraft.Pancakes.API.TimeAPI;
 import rocks.breakfastcraft.SQL.SQL;
@@ -23,7 +23,11 @@ import rocks.breakfastcraft.SQL.SQLAPI;
 import rocks.breakfastcraft.SQL.SQLRef;
 
 
-public class MailboxCommands implements CommandExecutor{
+public class MailboxCommands extends AbstractCommand {
+	public MailboxCommands() {
+		super("mailbox"/*, "usage", "descriptions", "permissionMessage", Arrays.asList("additional", "additional")*/);
+	}
+
 	/**
 	 * When the user performs a command that is relevant to our Mailbox system.
 	 */

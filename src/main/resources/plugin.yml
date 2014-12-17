@@ -2,12 +2,4 @@ name: Pancakes
 main: rocks.breakfastcraft.Pancakes.Pancakes
 version: 1.0
 authors: [Un1ted4rmy, computerwizjared]
-commands:
-  punish:
-   description: Jared's command
-  db:
-   description: Handles database interactions and dataflow.
-  lovely:
-   description: Custom easter egg for Lovely_013.
-  mailbox:
-   description: Custom mailbox website-to-server system (internal is working, too)
+softdepend: [mcMMO]

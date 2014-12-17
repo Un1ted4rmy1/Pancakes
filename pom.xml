@@ -21,6 +21,14 @@
 			<id>breakfastcraft-snapshots</id>
 			<url>http://breakfastcraft.rocks/nexus/content/repositories/snapshots</url>
 		</repository>
+		<repository>
+			<id>md_5-releases</id>
+			<url>http://repo.md-5.net/content/repositories/releases</url>
+		</repository>
+		<repository>
+			<id>md_5-snapshots</id>
+			<url>http://repo.md-5.net/content/repositories/snapshots</url>
+		</repository>
 	</repositories>
 	
 	<dependencies>
@@ -28,6 +36,11 @@
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot</artifactId>
 			<version>1.8-R0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.gmail.nossr50.mcMMO</groupId>
+			<artifactId>mcMMO</artifactId>
+			<version>LATEST</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -39,11 +52,11 @@
 	<distributionManagement>
 		<repository>
 			<id>breakfastcraft-releases</id>
-			<url>http://breakfastcraft.rocks/nexus/content/repositories/releases/</url>
+			<url>http://breakfastcraft.rocks/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>breakfastcraft-snapshots</id>
-			<url>http://breakfastcraft.rocks/nexus/content/repositories/snapshots/</url>
+			<url>http://breakfastcraft.rocks/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 	

@@ -14,8 +14,7 @@ import rocks.breakfastcraft.Pancakes.MiniPlugin;
 
 public class SQL implements MiniPlugin{
 	public SQL(){
-		plugin.getCommand("db").setExecutor(new SQLCommand());
-		
+		new SQLCommand().register();
 	}
 	public static ResultSet runQuery(String query)
 	{

@@ -1,7 +1,6 @@
 package rocks.breakfastcraft.Pancakes;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.logging.Level;
 
 import lombok.Getter;
@@ -31,17 +30,16 @@ public class Pancakes extends JavaPlugin {
 
 	public void onEnable() {
 		instance = this;
-		databaseConfig = ConfigManager.createConfig(this.getDataFolder(), "database.yml");
-		serverConfig = ConfigManager.createConfig(this.getDataFolder(), "server.yml");
+		setupConfigs();
 		serverType = (String) serverConfig.getValue("Type");
 		//Starts the MYSQL Connection - Required
 		startConnection();
 		new SQL();
 		new Mailbox();
-		if (serverType == "Adventure") {
+		if (serverType.equals("Adventure")) {
 			new EventPlugin();
 			new EasterEggs();
-		} else if (serverType == "Survival") {
+		} else if (serverType.equals("Survival")) {
 			new Survival();
 		} else {
 			getLogger().log(Level.SEVERE, "Specify server type in Pancakes server.yml!");
@@ -51,7 +49,7 @@ public class Pancakes extends JavaPlugin {
 	}
 
 	public void onDisable() {
-
+		ConfigManager.onDisable();
 	}
 
 	public void startConnection()
@@ -60,11 +58,34 @@ public class Pancakes extends JavaPlugin {
 		{
 			sqlConnection = SQLAPI.getConnection();
 		}
-		catch (SQLException e)
+		catch (Exception e)
 		{
 			getLogger().log(Level.SEVERE, "Unable to find database. Disabling plugin.");
 			Bukkit.broadcastMessage("Unable to connect to the database. Core Management plugin disabled.");
 			this.setEnabled(false);
+		}
+	}
+
+	public void setupConfigs() {
+		databaseConfig = ConfigManager.createConfig(this.getDataFolder(), "database.yml");
+		serverConfig = ConfigManager.createConfig(this.getDataFolder(), "server.yml");
+		if (!serverConfig.getYaml().contains("Type")) {
+			serverConfig.setValue("Type", "None");
+		}
+		if (!databaseConfig.getYaml().contains("Username")) {
+			databaseConfig.setValue("Username", "bukkit");
+		}
+		if (!databaseConfig.getYaml().contains("Password")) {
+			databaseConfig.setValue("Password", "password");
+		}
+		if (!databaseConfig.getYaml().contains("Default.Hostname")) {
+			databaseConfig.setValue("Default.Hostname", "localhost");
+		}
+		if (!databaseConfig.getYaml().contains("Default.Port")) {
+			databaseConfig.setValue("Default.Port", 3306);
+		}
+		if (!databaseConfig.getYaml().contains("Default.Database")) {
+			databaseConfig.setValue("Default.Database", "Pancakes");
 		}
 	}
 }
