@@ -17,24 +17,23 @@ import rocks.breakfastcraft.SQL.SQL;
 import rocks.breakfastcraft.SQL.SQLAPI;
 import rocks.breakfastcraft.SQL.SQLRef;
 
-public class PlayerEntranceEvents implements Listener{
-
+public class PlayerEntranceEvents implements Listener {
 	@EventHandler
 	public static void DatabaseCheck(PlayerJoinEvent event)
 	{
 		Player joiner = (Player) event.getPlayer();
 		ResultSet allPlayers = SQL.runQuery("SELECT * FROM Players WHERE Name='" + joiner.getName() + "' OR UUID='" + joiner.getUniqueId() + "';");
 		int counter = 0;
+		
 		try {
 			while (allPlayers.next())
 			{
 				counter++;
-				
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		if (counter == 0)	
 		{
 			try
@@ -48,7 +47,6 @@ public class PlayerEntranceEvents implements Listener{
 			catch (Exception ex)
 			{
 				Bukkit.getLogger().log(Level.SEVERE, "[Pancakes] {EXCEPTION} Method: DatabaseCheck" + ex.getMessage());
-				
 			}
 			joiner.sendMessage("[BreakfastCraft] You are now eligible to register on our website!");
 			
@@ -64,7 +62,6 @@ public class PlayerEntranceEvents implements Listener{
 	{
 		try
 		{
-			
 			Player joiner = (Player) event.getPlayer();
 			
 			//Determine if they are in our database
