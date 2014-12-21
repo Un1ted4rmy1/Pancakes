@@ -21,7 +21,7 @@ public class PlayerEntranceEvents implements Listener {
 	@EventHandler
 	public static void DatabaseCheck(PlayerJoinEvent event)
 	{
-		Player joiner = (Player) event.getPlayer();
+		Player joiner = event.getPlayer();
 		ResultSet allPlayers = SQL.runQuery("SELECT * FROM Players WHERE Name='" + joiner.getName() + "' OR UUID='" + joiner.getUniqueId() + "';");
 		int counter = 0;
 		
@@ -62,7 +62,7 @@ public class PlayerEntranceEvents implements Listener {
 	{
 		try
 		{
-			Player joiner = (Player) event.getPlayer();
+			Player joiner = event.getPlayer();
 			
 			//Determine if they are in our database
 			ResultSet mailboxes = SQL.Select("SELECT * FROM Mailbox WHERE PlayerID='" + SQLRef.getPlayerID(joiner) + "';");
